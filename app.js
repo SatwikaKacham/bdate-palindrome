@@ -139,20 +139,20 @@ function leapYear(year)
 //      return [count,nextDate];
 //  }
 
-// function getNextPalindromeOccurance(date){
-//     var count = 0;
-//     var nextDate = getNextDate(date);
+function getNextPalindromeOccurance(date){
+    var count = 0;
+    var nextDate = getNextDate(date);
   
-//     while(1){
-//       count++;
-//       var isPalindrome =isPosibilitiesPalindrome(nextDate); ;
-//       if(isPalindrome){
-//         break;
-//       }
-//       nextDate = getNextDate(nextDate);
-//     }
-//     return [count, nextDate];
-//   }
+    while(1){
+      count++;
+      var isPalindrome =isPosibilitiesPalindrome(nextDate); ;
+      if(isPalindrome){
+        break;
+      }
+      nextDate = getNextDate(nextDate);
+    }
+    return [count, nextDate];
+  }
 
 function clickEvent(){
 var bdaydate = dateInput.value;
@@ -165,22 +165,23 @@ var bdaydate = dateInput.value;
      year: Number(datearr[0]),
     }
   }
-//   else 
-//   {
-//     outPut.innerText = "please enter some valid input😥"
-//   }
-//  var sol = isPosibilitiesPalindrome(date);
-//      if(sol)
-//       {
-//          outPut.innerText = "Yahh!! your birthday is palindrome, band bajao!!🥁🥳";
-//         }
-//     else{
-//          var [count,nextDate] = getNextPalindromeOcuurance(date);
-//          outPut.innerText= 'The next palindrome is at ${nextDate.day}-${nextDate.month}-${nextDate.year},oh!oh! u missed palindrome by ${count} days!😞'
+  else 
+  {
+    outPut.innerText = "please enter some valid input😥"
+  }
+ var sol = isPosibilitiesPalindrome(date);
+     if(sol)
+      {
+         outPut.innerText = "Yahh!! your birthday is palindrome, band bajao!!🥁🥳";
+        }
+    else{
+         var [count,nextDate] = getNextPalindromeOccurance(date);
+         outPut.innerText= `The next palindrome is at ${nextDate.day}-
+         ${nextDate.month}-${nextDate.year},oh!oh! u missed palindrome by ${count} days!😞`
     
-//         } 
+        } 
 
-console.log(getNextPalindromeOccurance(date));
+
 }
 
 
