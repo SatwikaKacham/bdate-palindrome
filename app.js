@@ -167,7 +167,7 @@ var bdaydate = dateInput.value;
   }
   else 
   {
-    outPut.innerText = "please enter some valid input😥"
+    outPut.innerText = "Please enter some valid input😥"
   }
  var sol = isPosibilitiesPalindrome(date);
      if(sol)
