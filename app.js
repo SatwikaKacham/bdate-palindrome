@@ -3,27 +3,20 @@ const checkBtn = document.querySelector(".check-btn");
 const outPut = document.querySelector(".output");
 
 
-function IsreverseStringPalindrome(dateStr)
+let  IsreverseStringPalindrome= dateStr =>
 {
-    var allChars = dateStr.split('');
-    var reverseAllChars = allChars.reverse();
-    var reversedString = reverseAllChars.join('');
+    let allChars = dateStr.split('');
+    let reverseAllChars = allChars.reverse();
+    let reversedString = reverseAllChars.join('');
 
     return  reversedString===dateStr;
 
 }
 
-function dateToString(date)
+let  dateToString = date=>
 {
-    var dateArr = { day:'',month:'',year:''}
-    if(date.day<10)
-    {
-        dateArr.day="0"+date.day;
-    }
-    else 
-    {
-        dateArr.day=date.day.toString();
-    }
+    let dateArr = { day:'',month:'',year:''}
+        dateArr.day= date.day<10 ? "0"+date.day :date.day.toString();
 
     if(date.month<10)
     {
@@ -37,23 +30,23 @@ function dateToString(date)
     return dateArr;
 }
 
-function allPosibilities(date)
+let allPosibilities= date =>
 {
-    var dateArr = dateToString(date);
-    var ddmmyyyy = dateArr.day+dateArr.month+dateArr.year;
-    var mmddyyyy = dateArr.month+dateArr.day+dateArr.year;
-    var yyyymmdd = dateArr.year+dateArr.month+dateArr.day;
-    var ddmmyy = dateArr.day+dateArr.month+dateArr.year.slice(-2);
-    var mmddyy = dateArr.month+dateArr.day+dateArr.year.slice(-2);
-    var yymmdd = dateArr.year.slice(-2)+dateArr.month+dateArr.day;
+    const dateArr = dateToString(date);
+    const ddmmyyyy = dateArr.day+dateArr.month+dateArr.year;
+    const mmddyyyy = dateArr.month+dateArr.day+dateArr.year;
+    const yyyymmdd = dateArr.year+dateArr.month+dateArr.day;
+    const ddmmyy = dateArr.day+dateArr.month+dateArr.year.slice(-2);
+    const mmddyy = dateArr.month+dateArr.day+dateArr.year.slice(-2);
+    const yymmdd = dateArr.year.slice(-2)+dateArr.month+dateArr.day;
     formatsArr =[ddmmyyyy , mmddyyyy,yyyymmdd,ddmmyy, mmddyy,yymmdd ];
     return formatsArr;
 }
 
-function isPosibilitiesPalindrome(date)
+let  isPosibilitiesPalindrome = date =>
 {
     formatArr = allPosibilities(date);
-    var sol=false;
+    let sol=false;
 
      for(i=0;i<formatArr.length;i++)
      {
@@ -68,7 +61,7 @@ function isPosibilitiesPalindrome(date)
      return sol;
 }
 
-function leapYear(year)
+let  leapYear = year=>
 {
     if(year%400===0){
         return true;
@@ -83,12 +76,12 @@ function leapYear(year)
     return false;
 }
 
- function getNextDate(date)
+ let  getNextDate= date=>
  {
-     var day =date.day+1;
-     var month =date.month;
-     var year =date.year;
-    var totalDaysArr=[31,28,31,30,31,30,31,31,30,31,30,31];
+     let day =date.day+1;
+     let month =date.month;
+     let year =date.year;
+    let totalDaysArr=[31,28,31,30,31,30,31,31,30,31,30,31];
     if(month==2)
     {
         if(leapYear(year))
@@ -139,13 +132,13 @@ function leapYear(year)
 //      return [count,nextDate];
 //  }
 
-function getNextPalindromeOccurance(date){
-    var count = 0;
-    var nextDate = getNextDate(date);
+let  getNextPalindromeOccurance = date=>{
+    let count = 0;
+    let nextDate = getNextDate(date);
   
     while(1){
       count++;
-      var isPalindrome =isPosibilitiesPalindrome(nextDate); ;
+      let isPalindrome =isPosibilitiesPalindrome(nextDate); ;
       if(isPalindrome){
         break;
       }
@@ -154,8 +147,8 @@ function getNextPalindromeOccurance(date){
     return [count, nextDate];
   }
 
-function clickEvent(){
-var bdaydate = dateInput.value;
+let  clickEvent = () => {
+let bdaydate = dateInput.value;
   if(bdaydate!== '')
   {
     datearr = bdaydate.split('-');
@@ -169,7 +162,7 @@ var bdaydate = dateInput.value;
   {
     outPut.innerText = "Please enter some valid input😥"
   }
- var sol = isPosibilitiesPalindrome(date);
+ let sol = isPosibilitiesPalindrome(date);
      if(sol)
       {
          outPut.innerText = "Yahh!! your birthday is palindrome, band bajao!!🥁🥳";
