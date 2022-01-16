@@ -17,15 +17,7 @@ let  dateToString = date=>
 {
     let dateArr = { day:'',month:'',year:''}
         dateArr.day= date.day<10 ? "0"+date.day :date.day.toString();
-
-    if(date.month<10)
-    {
-        dateArr.month="0"+date.month;
-    }
-    else 
-    {
-        dateArr.month=date.month.toString();
-    }
+        dateArr.month= date.month<10 ? "0"+date.month :date.month.toString();
     dateArr.year=date.year.toString();
     return dateArr;
 }
